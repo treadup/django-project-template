@@ -1,7 +1,7 @@
 .phony: envrc install runserver secretkey venv
 
-envrc:
-	echo DJANGO_SECRET_KEY=`make -s secretkey` > .envrc
+env:
+	echo DJANGO_SECRET_KEY=`python -c "import secrets; print(secrets.token_urlsafe())"` > ~/.virtualenvs/`cat .venv`/.env
 
 install:
 	pip install -r requirements.txt
@@ -19,3 +19,4 @@ venv:
 	basename `pwd` > .venv
 	rm -rf ~/.virtualenvs/`cat .venv`
 	python3 -m venv ~/.virtualenvs/`cat .venv`
+	exec fish
