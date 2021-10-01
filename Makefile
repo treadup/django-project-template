@@ -6,6 +6,9 @@ envrc:
 install:
 	pip install -r requirements.txt
 
+migrate:
+	python manage.py migrate
+
 secretkey:
 	python -c "import secrets; print(secrets.token_urlsafe())"
 
