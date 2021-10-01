@@ -16,6 +16,7 @@ storage
 
 # Local environment variables
 .env
+.envrc
 
 # Log files
 *.log
