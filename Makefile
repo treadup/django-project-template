@@ -1,4 +1,7 @@
-.phony: install secretkey venv
+.phony: envrc install secretkey venv
+
+envrc:
+	echo DJANGO_SECRET_KEY=`make -s secretkey` > .envrc
 
 install:
 	pip install -r requirements.txt
