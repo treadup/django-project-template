@@ -1,4 +1,4 @@
-.phony: envrc install secretkey venv
+.phony: envrc install runserver secretkey venv
 
 envrc:
 	echo DJANGO_SECRET_KEY=`make -s secretkey` > .envrc
@@ -8,6 +8,9 @@ install:
 
 migrate:
 	python manage.py migrate
+
+runserver:
+	python manage.py runserver
 
 secretkey:
 	python -c "import secrets; print(secrets.token_urlsafe())"
